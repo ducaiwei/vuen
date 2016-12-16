@@ -39,6 +39,7 @@
   top: 50%;
   margin-top: -.24rem;
   color: red;
+  z-index: 99;
 }
 .tool-box {
   position: absolute;
@@ -61,16 +62,17 @@
 }
 .content-wrap {
   position: relative;
-  z-index: 999;
+  z-index: 9;
   width: 100%;
+  background-color: #fff;
 }
 </style>
 <template>
   <div class="container">
     <ul class="list-box">
-      <li v-for="data in list">
+      <li v-for="data in list" ontap="tapfn()">
         <div class="content-wrap">
-          <i class="paco icon-wrong del-icon"></i>
+          <i class="paco icon-wrong del-icon" @tap="tapfn()"></i>
           <span>data</span>
         </div>
         <div class="tool-box">
@@ -94,6 +96,13 @@
     },
     components: {
 
+    },
+    mounted() {
+    },
+    methods: {
+      tapfn: () => {
+        console.log('dsreretrw');
+      }
     }
   }
 </script>
