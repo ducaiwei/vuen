@@ -1,6 +1,6 @@
 # vuen
 
-> 圆圆live年终盛典活动
+> vue  component
 
 ## Build Setup
 
