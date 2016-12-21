@@ -56,7 +56,7 @@
   font-size: .24rem;
   text-decoration: none;
 }
-.tool-box a.del {
+.tool-box a.del-btn {
   background-color: red;
   color: #fff;
 }
@@ -64,19 +64,32 @@
   position: relative;
   z-index: 9;
   width: 100%;
+  left: 0;
   background-color: #fff;
+  transition: all ease-out .5s;
+  -webkit-transition: all ease-out .5s;
+}
+.content-wrap.active {
+  left: -100px;
+}
+.list-box li{
+  transition: height ease-out .5s;
+  -webkit-transition: height ease-out .5s;
+}
+li.del {
+  height: 0;
 }
 </style>
 <template>
   <div class="container">
     <ul class="list-box">
-      <li v-for="data in list" ontap="tapfn()">
-        <div class="content-wrap">
-          <i class="paco icon-wrong del-icon" @tap="tapfn()"></i>
+      <li v-for="data in list" :class="del ? 'del' : ''">
+        <div class="content-wrap" :class="flag ? 'active' : ''" @click="tapfn">
+          <i class="paco icon-wrong del-icon" @touchend="tapfn($event)"></i>
           <span>data</span>
         </div>
         <div class="tool-box">
-          <a href="javaScript:;" class="del">删除</a>
+          <a href="javaScript:;" class="del-btn" @click="delFn">删除</a>
         </div>
       </li>
     </ul>
@@ -86,7 +99,9 @@
   export default {
     data() {
       return {
-        list: []
+        list: [],
+        flag: false,
+        del: false
       }
     },
     created() {
@@ -98,10 +113,15 @@
 
     },
     mounted() {
+
     },
     methods: {
-      tapfn: () => {
-
+      tapfn(event){
+        event.preventDefault();
+        this.flag = !this.flag;
+      },
+      delFn(){
+        this.del = !this.del;
       }
     }
   }

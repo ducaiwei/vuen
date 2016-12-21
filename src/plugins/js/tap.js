@@ -2,7 +2,6 @@
   var Tap = {};
   var utils = {};
   utils.attachEvent = function(element, eventName, callback) {
-      console.log(element,eventName);
       if ('addEventListener' in window) {
           return element.addEventListener(eventName, callback, false);
       }
