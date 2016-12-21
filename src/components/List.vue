@@ -70,7 +70,7 @@
 <template>
   <div class="container">
     <ul class="list-box">
-      <li v-for="data in list" ontap="tapfn()">
+      <li v-for="data in list">
         <div class="content-wrap">
           <i class="paco icon-wrong del-icon" @tap="tapfn()"></i>
           <span>data</span>
