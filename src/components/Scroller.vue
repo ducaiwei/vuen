@@ -121,7 +121,7 @@ export default {
       }
     },
     pulldownReset(uuid) {
-      this.pulldownStatus = 'default'
+      this.$emit('changeStatus','default');
       if (uuid === this.uuid) {
         this.pulldown.reset(() => {
           this.reset()
@@ -220,8 +220,7 @@ export default {
         this.$emit('pullup:loading', this.uuid)
       })
       this.pullup.on('statuschange', (val) => {
-        console.log(val.newVal);
-        this.pullupStatus = val.newVal
+        this.$emit('changeStatus',val.newVal);
       })
     }
 
