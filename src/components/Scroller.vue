@@ -112,6 +112,36 @@ export default {
       setTimeout(() => {
         this._xscroll && this._xscroll.render()
       })
+    },
+    pullupReset(uuid) {
+      this.pullupStatus = 'default'
+      if (uuid === this.uuid) {
+        this.pullup.complete()
+        this.reset()
+      }
+    },
+    pulldownReset(uuid) {
+      this.pulldownStatus = 'default'
+      if (uuid === this.uuid) {
+        this.pulldown.reset(() => {
+          this.reset()
+        })
+      }
+    },
+    pullupDone(uuid) {
+      if (uuid === this.uuid) {
+        this._xscroll.unplug(this.pullup)
+      }
+    },
+    pullupDisable(uuid) {
+      if (uuid === this.uuid) {
+        this.pullup.stop()
+      }
+    },
+    pullupEnable(uuid) {
+      if (uuid === this.uuid) {
+        this.pullup.restart()
+      }
     }
   },
   created () {
@@ -190,6 +220,7 @@ export default {
         this.$emit('pullup:loading', this.uuid)
       })
       this.pullup.on('statuschange', (val) => {
+        console.log(val.newVal);
         this.pullupStatus = val.newVal
       })
     }
@@ -215,39 +246,9 @@ export default {
     this._xscroll.render()
   },
   events: {
-    'pulldown:reset' (uuid) {
-      this.pulldownStatus = 'default'
-      if (uuid === this.uuid) {
-        this.pulldown.reset(() => {
-          this.reset()
-        })
-      }
-    },
-    'pullup:reset' (uuid) {
-      this.pullupStatus = 'default'
-      if (uuid === this.uuid) {
-        this.pullup.complete()
-        this.reset()
-      }
-    },
-    'pullup:done' (uuid) {
-      if (uuid === this.uuid) {
-        this._xscroll.unplug(this.pullup)
-      }
-    },
     'scroller:reset' (uuid) {
       if (uuid === this.uuid) {
         this.reset()
-      }
-    },
-    'pullup:disable' (uuid) {
-      if (uuid === this.uuid) {
-        this.pullup.stop()
-      }
-    },
-    'pullup:enable' (uuid) {
-      if (uuid === this.uuid) {
-        this.pullup.restart()
       }
     }
   },
