@@ -3,11 +3,11 @@ li.menu-li{
   position: relative;
   height: 1rem;
   text-align: left;
-  font-size: 0;
   padding: 0;
   margin: 0;
 }
-.a-link {
+.menu-li{
+  display: block;
   padding-left: .2rem;
   font-size: .28rem;
   line-height: 1rem;
@@ -31,17 +31,21 @@ li.menu-li:after {
 <template>
   <div>
     <ul>
-      <li class="menu-li">
-        <router-link to="/setList" class="a-link">可修改列表</router-link>
+      <li class="menu-li" @click="skip('setList')">可修改列表
       </li>
-      <li class="menu-li">
-        <router-link to="/scrollerList" class="a-link">scroller-list</router-link>
+      <li class="menu-li" @click="skip('scrollerList')">scroller-list
       </li>
     </ul>
   </div>
 </template>
 <script>
   export default {
-    name: 'index'
+    name: 'index',
+    methods: {
+      skip(path) {
+        console.log(path);
+        this.$router.push(path);
+      }
+    }
   }
 </script>

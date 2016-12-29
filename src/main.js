@@ -14,11 +14,11 @@ const routes = [
   {path:'/scrollerList',component:ScrollerList}
 ]
 const router = new VueRouter({
-  mode: 'hash',
+  mode: 'history',
   routes: routes
 })
 Vue.use(VueRouter);
 const app = new Vue({
-  router: router,
+  router,
   render: h => h(App)
 }).$mount('#app')
