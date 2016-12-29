@@ -1,9 +1,18 @@
 <style>
-
+.full-img-wrap {
+  width: 100%;
+  height: 100%;
+}
 </style>
 <template>
-  <div>
-
+  <div class="full-img-wrap">
+    <scroller lock-x>
+      <swipe>
+        <swipe-item v-for="img in imgs">
+          <img src="img">
+        </swipe-item>
+      </swipe>
+    </scroller>
   </div>
 </template>
 <script>
@@ -13,9 +22,18 @@
   export default {
     props: {
       imgs: {
-        Type:Array,
-        default:[]
+        type:Array,
+        default:[
+          '',
+          '',
+          ''
+        ]
       }
+    },
+    components: {
+      'scroller': Scroller,
+      'swipe': Swipe,
+      'swipe-item': SwipeItem
     }
   }
 </script>
