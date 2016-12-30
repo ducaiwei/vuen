@@ -6,12 +6,14 @@ import Tap from'./plugins/js/tap'
 import SetList from './components/List'
 import Entry from './Entry.vue'
 import Index from './view/index.vue'
-import ScrollerList from './view/ScrollerList.vue'
+import PullUpLoad from './view/PullUpLoad.vue'
+import FullImg from './view/FullImg.vue'
 const routes = [
   {path:'/',component:Entry},
   {path:'/index',component:Index},
   {path:'/setList',component:SetList},
-  {path:'/scrollerList',component:ScrollerList}
+  {path:'/pullUpLoad',component:PullUpLoad},
+  {path:'/fullImg',component:FullImg}
 ]
 const router = new VueRouter({
   mode: 'history',

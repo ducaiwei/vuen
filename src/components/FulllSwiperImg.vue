@@ -9,16 +9,17 @@
     <scroller lock-x>
       <swipe>
         <swipe-item v-for="img in imgs">
-          <img src="img">
+          <div :style="{backgroundImage: 'url(' + img + ')'}">
+          </div>
         </swipe-item>
       </swipe>
     </scroller>
   </div>
 </template>
 <script>
-  import Swipe from 'Swipe'
-  import SwipeItem from 'SwipeItem'
-  import Scroller from 'Scroller'
+  import Swipe from './Swipe.vue'
+  import SwipeItem from './SwipeItem.vue'
+  import Scroller from './Scroller.vue'
   export default {
     props: {
       imgs: {

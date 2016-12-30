@@ -33,7 +33,9 @@ li.menu-li:after {
     <ul>
       <li class="menu-li" @click="skip('setList')">可修改列表
       </li>
-      <li class="menu-li" @click="skip('scrollerList')">scroller-list
+      <li class="menu-li" @click="skip('pullUpLoad')">pullUpLoad
+      </li>
+      <li class="menu-li" @click="skip('fullImg')">查看大图
       </li>
     </ul>
   </div>
