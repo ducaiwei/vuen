@@ -1,5 +1,13 @@
 <style>
 .full-img-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.mask {
+  position: fixed;
   width: 100%;
   height: 100%;
 }
@@ -9,11 +17,12 @@
     <scroller lock-x>
       <swipe>
         <swipe-item v-for="img in imgs">
-          <div :style="{backgroundImage: 'url(' + img + ')'}">
+          <div :style="[backgroundImage: 'url(' + img + ')']">
           </div>
         </swipe-item>
       </swipe>
     </scroller>
+    <div class="mask"></div>
   </div>
 </template>
 <script>
@@ -24,11 +33,7 @@
     props: {
       imgs: {
         type:Array,
-        default:[
-          '',
-          '',
-          ''
-        ]
+        default:[]
       }
     },
     components: {
