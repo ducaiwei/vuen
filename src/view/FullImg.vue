@@ -8,10 +8,11 @@
 <template>
   <div>
       <img :src="img" v-for="img in imgs" class="list-img">
+      <full-swipe-img :imgs="imgs"></full-swipe-img>
   </div>
 </template>
 <script>
-  import FullSwipeImg from '../components/FullSwipeImg.vue'
+  import FullSwipeImg from '../components/FullSwiperImg.vue'
   export default {
     data() {
       return {

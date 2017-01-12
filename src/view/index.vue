@@ -31,11 +31,11 @@ li.menu-li:after {
 <template>
   <div>
     <ul>
-      <li class="menu-li" @click="skip('setList')">可修改列表
+      <li class="menu-li" @touchend="skip('setList')">可修改列表
       </li>
-      <li class="menu-li" @click="skip('pullUpLoad')">pullUpLoad
+      <li class="menu-li" @touchend="skip('pullUpLoad')">pullUpLoad
       </li>
-      <li class="menu-li" @click="skip('fullImg')">查看大图
+      <li class="menu-li" @touchend="skip('fullImg')">查看大图
       </li>
     </ul>
   </div>
@@ -45,7 +45,6 @@ li.menu-li:after {
     name: 'index',
     methods: {
       skip(path) {
-        console.log(path);
         this.$router.push(path);
       }
     }
