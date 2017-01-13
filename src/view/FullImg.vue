@@ -7,8 +7,8 @@
 </style>
 <template>
   <div>
-      <img :src="img" v-for="img in imgs" class="list-img">
-      <full-swipe-img :imgs="imgs"></full-swipe-img>
+      <img :src="img" v-for="img in imgs" class="list-img" @touchend="show">
+      <full-swipe-img :imgs="imgs" ref="fullImg"></full-swipe-img>
   </div>
 </template>
 <script>
@@ -25,6 +25,11 @@
     },
     components: {
       'full-swipe-img': FullSwipeImg
+    },
+    methods: {
+      show() {
+        this.$refs.fullImg.show();
+      }
     }
   }
 </script>

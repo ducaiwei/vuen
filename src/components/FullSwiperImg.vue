@@ -40,7 +40,7 @@
 }
 </style>
 <template>
-  <div class="full-img-wrap">
+  <div class="full-img-wrap" v-show="isShow" @click="hide()">
     <scroller lock-x :height="wHeight" class="scroller-wrap">
       <swipe class="swipe-box" :autoFlag=false>
         <swipe-item v-for="img in imgs">
@@ -59,6 +59,7 @@
   export default {
     data() {
       return {
+        isShow: false,
         wHeight: window.innerHeight + 'px'
       }
     },
@@ -77,6 +78,15 @@
     },
     mounted() {
       console.log(this.wHeight);
+    },
+    methods: {
+      hide() {
+        this.isShow = false;
+      },
+      show() {
+        this.isShow = true;
+      }
     }
+
   }
 </script>
