@@ -41,7 +41,8 @@ li.menu-li:after {
       </li>
       <li class="menu-li" @touchend="skip('fullImg')">查看大图
       </li>
-      <li class="menu-li" @touchend="skip('canvasSnow')">canvas下雪</li>
+      <li class="menu-li" @touchend="skip('canvasSnow')">canvas</li>
+      <li class="menu-li" @touchend="skip('dateTime')">时间选择器</li>
     </ul>
   </div>
 </template>

@@ -32,7 +32,7 @@ export default {
         for(var i = 0 ; i < 50 ;i++) {
           this.list.push(i);
         }
-      },5000)
+      },500)
     }
   }
 }
