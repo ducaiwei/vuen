@@ -3,7 +3,6 @@
     <slot>
       <div class="weui_cell_bd weui_cell_primary">
         <p>{{title}}</p>
-       <!--  <inline-desc v-if="inlineDesc">{{inlineDesc}}</inline-desc> -->
       </div>
       <div class="weui_cell_ft with_arrow vux-datetime-value">{{ currentValue || placeholder}}</div>
     </slot>
@@ -12,11 +11,8 @@
 
 <script>
 import Picker from './datetimepicker'
-
 export default {
   components: {
-    Group,
-    InlineDesc
   },
   props: {
     format: {
@@ -37,11 +33,11 @@ export default {
     maxYear: Number,
     confirmText: {
       type: String,
-      default: 'ok'
+      default: '确定'
     },
     cancelText: {
       type: String,
-      default: 'cancel'
+      default: '取消'
     },
     clearText: String,
     yearRow: {
@@ -71,7 +67,8 @@ export default {
   },
   data () {
     return {
-      currentValue: ''
+      currentValue: '',
+      uuid: new Date().getTime()
     }
   },
   mounted () {
@@ -246,7 +243,7 @@ export default {
 }
 
 .dp-header .dp-item {
-  color: #04BE02;
+  color: #42a0e1;
   font-size: 18px;
   height: 44px;
   line-height: 44px;

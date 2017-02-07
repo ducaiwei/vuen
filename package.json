@@ -48,7 +48,8 @@
     "webpack-dev-middleware": "^1.8.3",
     "webpack-hot-middleware": "^2.12.2",
     "webpack-merge": "^0.14.1",
-    "wind-dom": "0.0.3"
+    "wind-dom": "0.0.3",
+    "fastclick": "^1.0.6"
   },
   "engines": {
     "node": ">= 4.0.0",

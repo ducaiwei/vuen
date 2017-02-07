@@ -5,9 +5,9 @@ const MASK_TEMPLATE = '<div class="dp-mask"></div>'
 
 const TEMPLATE = `<div class="dp-container">
   <div class="dp-header">
-    <div class="dp-item dp-left" data-role="cancel">cancel</div>
+    <div class="dp-item dp-left" data-role="cancel">取消</div>
     <div class="dp-item dp-center" data-role="clear"></div>
-    <div class="dp-item dp-right" data-role="confirm">ok</div>
+    <div class="dp-item dp-right" data-role="confirm">确定</div>
   </div>
   <div class="dp-content">
     <div class="dp-item" data-role="year"></div>
@@ -55,9 +55,9 @@ var DEFAULT_CONFIG = {
   onClear () {},
   onShow () {},
   onHide () {},
-  confirmText: 'ok',
+  confirmText: '确定',
   clearText: '',
-  cancelText: 'cancel'
+  cancelText: '取消'
 }
 
 function renderScroller (el, data, value, fn) {
