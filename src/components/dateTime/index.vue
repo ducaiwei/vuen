@@ -1,142 +1,3 @@
-<template>
-  <a class="weui_cell" href="javascript:">
-    <slot>
-      <div class="weui_cell_bd weui_cell_primary">
-        <p>{{title}}</p>
-      </div>
-      <div class="weui_cell_ft with_arrow vux-datetime-value">{{ currentValue || placeholder}}</div>
-    </slot>
-  </a>
-</template>
-
-<script>
-import Picker from './datetimepicker'
-export default {
-  components: {
-  },
-  props: {
-    format: {
-      type: String,
-      default: 'YYYY-MM-DD'
-    },
-    title: {
-      type: String,
-      required: true
-    },
-    value: {
-      type: String,
-      default: ''
-    },
-    inlineDesc: String,
-    placeholder: String,
-    minYear: Number,
-    maxYear: Number,
-    confirmText: {
-      type: String,
-      default: '确定'
-    },
-    cancelText: {
-      type: String,
-      default: '取消'
-    },
-    clearText: String,
-    yearRow: {
-      type: String,
-      default: '{value}'
-    },
-    monthRow: {
-      type: String,
-      default: '{value}'
-    },
-    dayRow: {
-      type: String,
-      default: '{value}'
-    },
-    hourRow: {
-      type: String,
-      default: '{value}'
-    },
-    minuteRow: {
-      type: String,
-      default: '{value}'
-    }
-  },
-  created () {
-    this.currentValue = this.value
-    this.handleChangeEvent = true
-  },
-  data () {
-    return {
-      currentValue: '',
-      uuid: new Date().getTime()
-    }
-  },
-  mounted () {
-    const uuid = this.uuid
-    this.$nextTick(() => {
-      this.$el.setAttribute('id', 'vux-datetime-' + uuid)
-      this.render()
-    })
-  },
-  computed: {
-    pickerOptions () {
-      const _this = this
-      const options = {
-        trigger: '#vux-datetime-' + this.uuid,
-        format: this.format,
-        value: this.currentValue,
-        output: '.vux-datetime-value',
-        confirmText: this.confirmText,
-        cancelText: _this.cancelText,
-        clearText: _this.clearText,
-        yearRow: this.yearRow,
-        monthRow: this.monthRow,
-        dayRow: this.dayRow,
-        hourRow: this.hourRow,
-        minuteRow: this.minuteRow,
-        onConfirm (value) {
-          _this.currentValue = value
-        },
-        onClear (value) {
-          _this.$emit('on-clear', value)
-        }
-      }
-      if (this.minYear) {
-        options.minYear = this.minYear
-      }
-      if (this.maxYear) {
-        options.maxYear = this.maxYear
-      }
-      return options
-    }
-  },
-  methods: {
-    render () {
-      if (this.picker) {
-        this.picker.destroy()
-      }
-      this.picker = new Picker(this.pickerOptions)
-    }
-  },
-  watch: {
-    currentValue (val) {
-      this.$emit('on-change', val)
-      this.$emit('input', val)
-    },
-    value (val) {
-      if (this.currentValue !== val) {
-        this.currentValue = val
-        this.picker.destroy()
-        this.render()
-      }
-    }
-  },
-  beforeDestroy () {
-    this.picker.destroy()
-  }
-}
-</script>
-
 <style>
 .weui_cell_ft.with_arrow:after {
   content: " ";
@@ -265,3 +126,135 @@ export default {
   text-align: center;
 }
 </style>
+<template>
+  <a class="weui_cell" href="javascript:">
+    <slot>
+    </slot>
+  </a>
+</template>
+<script>
+import Picker from './datetimepicker'
+export default {
+  components: {
+  },
+  props: {
+    format: {
+      type: String,
+      default: 'YYYY-MM-DD'
+    },
+    value: {
+      type: String,
+      default: ''
+    },
+    inlineDesc: String,
+    placeholder: String,
+    minYear: Number,
+    maxYear: Number,
+    confirmText: {
+      type: String,
+      default: '确定'
+    },
+    cancelText: {
+      type: String,
+      default: '取消'
+    },
+    clearText: String,
+    yearRow: {
+      type: String,
+      default: '{value}'
+    },
+    monthRow: {
+      type: String,
+      default: '{value}'
+    },
+    dayRow: {
+      type: String,
+      default: '{value}'
+    },
+    hourRow: {
+      type: String,
+      default: '{value}'
+    },
+    minuteRow: {
+      type: String,
+      default: '{value}'
+    }
+  },
+  created () {
+    this.currentValue = this.value
+    this.handleChangeEvent = true
+  },
+  data () {
+    return {
+      currentValue: '',
+      uuid: new Date().getTime()
+    }
+  },
+  mounted () {
+    const uuid = this.uuid
+    this.$nextTick(() => {
+      this.$el.setAttribute('id', 'vux-datetime-' + uuid)
+      this.render()
+    })
+  },
+  computed: {
+    pickerOptions () {
+      const _this = this
+
+      const options = {
+        trigger: '#vux-datetime-' + this.uuid,
+        format: this.format,
+        value: this.currentValue,
+        output: '.vux-datetime-value',
+        confirmText: this.confirmText,
+        cancelText: _this.cancelText,
+        clearText: _this.clearText,
+        yearRow: this.yearRow,
+        monthRow: this.monthRow,
+        dayRow: this.dayRow,
+        hourRow: this.hourRow,
+        minuteRow: this.minuteRow,
+        minYear: this.minYear,
+        maxYear: this.minYear,
+        onConfirm (value) {
+          _this.currentValue = value
+        },
+        onClear (value) {
+          _this.$emit('on-clear', value)
+        }
+      }
+      if (this.minYear) {
+        options.minYear = this.minYear
+      }
+      if (this.maxYear) {
+        options.maxYear = this.maxYear
+      }
+      return options
+    }
+  },
+  methods: {
+    render () {
+      if (this.picker) {
+        this.picker.destroy()
+      }
+      this.picker = new Picker(this.pickerOptions)
+    }
+  },
+  watch: {
+    currentValue (val) {
+      this.$emit('on-change', val)
+      this.$emit('input', val)
+    },
+    value (val) {
+      if (this.currentValue !== val) {
+        this.currentValue = val
+        this.picker.destroy()
+        this.render()
+      }
+    }
+  },
+  beforeDestroy () {
+    this.picker.destroy()
+  }
+}
+</script>
