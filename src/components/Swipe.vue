@@ -365,7 +365,7 @@
 
         var distanceX = Math.abs(offsetLeft);
         var distanceY = Math.abs(offsetTop);
-        if (distanceX < 5 || (distanceX >= 5 && distanceY >= 1.73 * distanceX)) {
+        if (distanceX < 5 || (distanceX >= 5 && distanceY >=  distanceX)) {
           this.userScrolling = true;
           return;
         } else {

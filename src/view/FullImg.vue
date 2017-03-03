@@ -19,7 +19,7 @@
         imgs:[
           'http://pic56.nipic.com/file/20141227/19674963_215052431000_2.jpg',
           'http://imgstore.cdn.sogou.com/app/a/100540002/548664.jpg',
-          'http://pic60.nipic.com/file/20150303/12216461_110913232000_2.jpg'
+          'https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1486457858&di=43fce844ba62a044d25b60e95f8360d0&src=http://p2.qhimg.com/t011fc13354f12d1a46.jpg'
         ]
       }
     },

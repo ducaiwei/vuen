@@ -9,6 +9,7 @@ import Index from './view/index.vue'
 import PullUpLoad from './view/PullUpLoad.vue'
 import FullImg from './view/FullImg.vue'
 import DateTime from './view/DateTime.vue'
+import CanvasImage from './view/CanvasImage.vue'
 
 const routes = [
   {path:'/',component:Entry},
@@ -16,7 +17,8 @@ const routes = [
   {path:'/setList',component:SetList},
   {path:'/pullUpLoad',component:PullUpLoad},
   {path:'/fullImg',component:FullImg},
-  {path:'/dateTime',component:DateTime}
+  {path:'/dateTime',component:DateTime},
+  {path:'/canvasImage',component:CanvasImage}
 ]
 const router = new VueRouter({
   mode: 'history',

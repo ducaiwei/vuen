@@ -95,7 +95,6 @@ function hideMask () {
 
   setTimeout(function () {
     MASK && (MASK.style.display = 'none')
-    // hideMaskTimer = null
   }, SHOW_ANIMATION_TIME)
 }
 
